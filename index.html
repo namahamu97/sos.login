@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+</head>
+
+<body>
+    <div id="firebaseui-auth-container"></div>
+    ​
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    ​
+    </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js">
+    </script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDzyp1CZPzhelBJQErgxa91Qh6MElKAWxo",
+            authDomain: "sos-file-6b29b.firebaseapp.com",
+            projectId: "sos-file-6b29b",
+            storageBucket: "sos-file-6b29b.appspot.com",
+            messagingSenderId: "1026900784152",
+            appId: "1:1026900784152:web:f796185fd249ae9b853f6d"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script>
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    </script>
+    <script>
+        // ui.start('#firebaseui-auth-container', {
+        //         signInOptions: [
+        //             firebase.auth.EmailAuthProvider.PROVIDER_ID
+        //         ],
+        //         // Other config options...
+        //         // signInSuccessUrl: 'https://namahamu97.github.io/sos.edit/',
+        //         callbacks: {
+        //         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+        //             // Handle the result
+        //             return false;
+        //         },
+        //     }
+
+        //     });
+        // var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+        var uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                    return true;
+                },
+
+            },
+
+            signInSuccessUrl: 'https://namahamu97.github.io/sos.edit/',
+            signInOptions: [
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            ],
+        };
+        ui.start('#firebaseui-auth-container', uiConfig);
+
+    </script>
+    ​
+    ​
+    ​
+</body>
+
+</html>
